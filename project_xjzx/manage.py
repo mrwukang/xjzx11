@@ -4,4 +4,4 @@
 
 if __name__ == '__main__':
     app.run()
-    c = 1000
+    a = 10
