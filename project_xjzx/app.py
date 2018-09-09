@@ -1,10 +1,12 @@
-from flask import Flask
-from flask import render_template
-import redis
-from views_admin import admin_blueprint
-from views_user import user_blueprint
-from views_news import news_blueprint
+from flask import Flask, render_template
 
-def create_app(Config):
-    app = Flask(__name__)
-    app.config.from_object(Config)
+app = Flask(__name__)
+
+
+@app.route("/")
+def hello_world():
+    return render_template("news/index.html")
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
