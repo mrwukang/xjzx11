@@ -8,3 +8,6 @@ from views_news import news_blueprint
 def create_app(Config):
     app = Flask(__name__)
     app.config.from_object(Config)
+
+
+app.run()
