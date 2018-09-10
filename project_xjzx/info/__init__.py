@@ -41,6 +41,8 @@ def create_app(config_name):
     app = Flask(__name__)
     from info.modules.news import news_blue
     app.register_blueprint(news_blue)
+    from info.modules.index import index_blueprint
+    app.register_blueprint(index_blueprint)
 
     app.config.from_object(config[config_name])
     Session(app)

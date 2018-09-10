@@ -5,7 +5,6 @@ from flask import render_template
 from info.modules.news import news_blue
 
 
-@news_blue.route("/")
+@news_blue.route("/news")
 def index():
-    return render_template("admin/index.html")
-    # return "hello"
+    return render_template("news/index.html")

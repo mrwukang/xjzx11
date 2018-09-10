@@ -1,6 +1,5 @@
 from redis import StrictRedis
 import logging
-import os
 
 
 class Config(object):
