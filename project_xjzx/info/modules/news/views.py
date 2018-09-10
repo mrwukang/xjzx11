@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 from flask import render_template
 
-from modules.news import news_blue
+from info.modules.news import news_blue
 
 
 @news_blue.route("/")

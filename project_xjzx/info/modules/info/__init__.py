@@ -7,7 +7,7 @@ from flask_wtf import CSRFProtect
 from redis import StrictRedis
 from flask_session import Session
 
-from config import config
+from info.config import config
 
 
 db = SQLAlchemy()

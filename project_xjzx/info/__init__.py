@@ -7,7 +7,7 @@ from flask_wtf import CSRFProtect
 from redis import StrictRedis
 from flask_session import Session
 
-from config import config
+from info.config import config
 
 
 db = SQLAlchemy()
@@ -28,7 +28,7 @@ def create_app(config_name):
 
     # setup_log(config_name)
     app = Flask(__name__)
-    from modules.news import news_blue
+    from info.modules.news import news_blue
     app.register_blueprint(news_blue)
 
     app.config.from_object(config[config_name])
