@@ -46,17 +46,14 @@ class User(BaseModel, db.Model):
         default="MAN")
 
     # 当前用户收藏的所有新闻：维护的是User和News的多对多的关系
-    collection_news = db.relationship("News", secondary=tb_user_news_collection, lazy="dynamic")  # 用户收藏的新闻
-    authors = db.relationship(
-        'User',
-        lazy='dynamic',
-        secondary=tb_user_author,
-        primaryjoin=id == tb_user_author.c.user_id,
-        secondaryjoin=id == tb_user_author.c.author_id,
-        backref=db.backref('users', lazy='dynamic')
-    )
+    collection_news = db.relationship("News", secondary=tb_user_news_collection, lazy="dynamic")
 
     # 当前用户所发布的新闻：relationship维护的是User和News的一对多的关系
+    authors = db.relationship("User", secondary=tb_user_author, lazy="dynamic",
+                              primaryjoin=id == tb_user_author.c.user_id,
+                              secondaryjoin=id == tb_user_author.c.author_id,
+                              backref=db.backref("users", lazy="dynamic"))
+
     # backref:维护的是多对一
     news_list = db.relationship('News', backref='user', lazy='dynamic')
 

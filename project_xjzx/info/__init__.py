@@ -39,16 +39,23 @@ def create_app(config_name):
 
     setup_log(config_name)
     app = Flask(__name__)
-    from info.modules.news import news_blue
-    app.register_blueprint(news_blue)
+    from info.modules.news import news_blueprint
+    app.register_blueprint(news_blueprint)
+    from info.modules.admin import admin_blueprint
+    app.register_blueprint(admin_blueprint)
     from info.modules.index import index_blueprint
     app.register_blueprint(index_blueprint)
 
+    from info.modules.passport import passport_blueprint
+    app.register_blueprint(passport_blueprint)
+    from info.modules.users import user_blueprint
+    app.register_blueprint(user_blueprint)
+
     app.config.from_object(config[config_name])
     Session(app)
-    # db = SQLAlchemy(app)
     db.init_app(app)
     CSRFProtect(app)
     global redis_store
     redis_store = StrictRedis(host=config[config_name].REDIS_HOST, port=config[config_name].REDIS_PORT)
+    # redis_store = StrictRedis(host=app.config.get("REDIS_HOST"), port=app.config.get("REDIS_PORT"))
     return app
