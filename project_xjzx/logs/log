@@ -297,3 +297,561 @@ INFO _internal.py:88 127.0.0.1 - - [10/Sep/2018 21:27:22] "GET / HTTP/1.1" 200 -
 INFO _internal.py:88 127.0.0.1 - - [10/Sep/2018 21:27:22] "GET /user/image_code?1 HTTP/1.1" 200 -
 INFO _internal.py:88 127.0.0.1 - - [10/Sep/2018 21:27:44] "GET / HTTP/1.1" 200 -
 INFO _internal.py:88 127.0.0.1 - - [10/Sep/2018 21:27:44] "GET /user/image_code?1 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR app.py:1761 Exception on / [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 484, in connect
+    sock = self._connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 541, in _connect
+    raise err
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 529, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 667, in execute_command
+    connection.send_command(*args)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 585, in send_packed_command
+    self.connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 192.168.15.131:6379. 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 484, in connect
+    sock = self._connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 541, in _connect
+    raise err
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 529, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2291, in wsgi_app
+    ctx.push()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\ctx.py", line 377, in push
+    self.app, self.request
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask_session\sessions.py", line 132, in open_session
+    val = self.redis.get(self.key_prefix + sid)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 585, in send_packed_command
+    self.connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 192.168.15.131:6379. 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 09:44:13] "GET / HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on / [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 484, in connect
+    sock = self._connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 541, in _connect
+    raise err
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 529, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 667, in execute_command
+    connection.send_command(*args)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 585, in send_packed_command
+    self.connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 192.168.15.131:6379. 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 484, in connect
+    sock = self._connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 541, in _connect
+    raise err
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 529, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2291, in wsgi_app
+    ctx.push()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\ctx.py", line 377, in push
+    self.app, self.request
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask_session\sessions.py", line 132, in open_session
+    val = self.redis.get(self.key_prefix + sid)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 585, in send_packed_command
+    self.connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 192.168.15.131:6379. 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 09:44:20] "GET / HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 484, in connect
+    sock = self._connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 541, in _connect
+    raise err
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 529, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 667, in execute_command
+    connection.send_command(*args)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 585, in send_packed_command
+    self.connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 192.168.15.131:6379. 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 484, in connect
+    sock = self._connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 541, in _connect
+    raise err
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 529, in _connect
+    sock.connect(socket_address)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2291, in wsgi_app
+    ctx.push()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\ctx.py", line 377, in push
+    self.app, self.request
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask_session\sessions.py", line 132, in open_session
+    val = self.redis.get(self.key_prefix + sid)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 976, in get
+    return self.execute_command('GET', name)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 585, in send_packed_command
+    self.connect()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\redis\connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10060 connecting to 192.168.15.131:6379. 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 09:45:02] "GET /favicon.ico HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 439-335-543
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/js/main.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/person01.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/hit_icon.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /static/news/images/clock.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:01] "GET /favicon.ico HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:02] "GET /static/news/images/shutoff.png HTTP/1.1" 304 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:03] "GET /passport/image_code?code_id=43fd893a-5878-4979-b745-f74c933b6764 HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:04] "GET /passport/image_code?code_id=e5ee2cd8-5d52-4e60-9e68-e2088afa72a5 HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:36:05] "GET /passport/image_code?code_id=ed7203e8-6777-498e-aebd-7a1993c6676b HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:37:10] "GET /passport/image_code?code_id=5cd4b5a4-52b2-44b3-8378-ce0a3e37f20a HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:37:10] "GET /passport/image_code?code_id=77ff7c9a-6589-4eff-900f-aa9779754826 HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:42:43] "GET /passport/image_code?code_id=691cd769-d056-4a83-a8ed-d263af1f52c0 HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:45:56] "GET /passport/image_code?code_id=63babbaa-fc6b-4adf-9c2f-b4d9052f98d6 HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:57:11] "GET / HTTP/1.1" 200 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 15, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 10:57:41] "GET /passport/image_code?code=111 HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 11:21:08] "GET / HTTP/1.1" 200 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 11:21:10] "GET /passport/image_code?code_id=08aafd1c-4cd3-4491-8005-60d44597dbfe HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 11:27:10] "GET / HTTP/1.1" 200 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.setex('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'setex'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 11:27:11] "GET /passport/image_code?code_id=9677791e-31e8-41dd-95ae-04a633450398 HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 11:28:25] "GET / HTTP/1.1" 200 -
+ERROR app.py:1761 Exception on /passport/image_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 16, in get_image_code
+    redis_store.set('ImageCode_' + code_id, constants.IMAGE_CODE_REDIS_EXPIRES, text)
+AttributeError: 'NoneType' object has no attribute 'set'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 11:28:26] "GET /passport/image_code?code_id=59812ff1-514f-473c-9c06-fb492b3e1497 HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 12:40:03] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 12:40:07] "GET /passport/image_code?code_id=f1c59c15-04ea-42e3-9e5d-fa1ab8d507be HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:18:32] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:18:34] "GET /passport/image_code?code_id=9f95a4c8-8151-4193-a810-8d5b110174e0 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:20:43] "GET /passport/image_code?code_id=40b8365d-e412-409d-a5c0-4e4409350f18 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:21:00] "GET /passport/image_code?code_id=75649420-b77c-4531-acb3-ac72ffe0791e HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:21:11] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:21:14] "GET /passport/image_code?code_id=b35e8ab2-2e0b-412f-ba42-d70c757a5062 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:25:15] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:25:16] "GET /passport/image_code?code_id=75c732c9-1e5e-4092-baf5-1973cc011032 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:27:12] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:27:14] "GET /passport/image_code?code_id=7a337d89-7491-4bdd-89f9-a4775513b35f HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:31:00] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:31:01] "GET /passport/image_code?code_id=b57acb05-0efc-4b9c-a6ba-c3941c45ffb8 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:32:10] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:32:11] "GET /passport/image_code?code_id=76750e9f-a290-4836-a98f-ac8736d77033 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:32:59] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:33:01] "GET /passport/image_code?code_id=3828a0f6-2567-4e9e-9296-5ef207dbefa6 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:34:28] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:34:30] "GET /passport/image_code?code_id=e538e365-c935-4d7e-8923-40f973f26d8e HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:37:13] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:37:15] "GET /passport/image_code?code_id=ffb58355-5121-43a5-a122-248c9f4d10b8 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:37:56] "GET / HTTP/1.1" 200 -
+ERROR app.py:1761 Exception on /passport/smscode [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "G:\github_repository\xjzx11\project_xjzx\info\modules\passport\views.py", line 37, in send_smscode
+    mobile = param_dict.get("mobile")
+AttributeError: 'NoneType' object has no attribute 'get'
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:38:09] "GET /passport/smscode HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:40:18] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:40:27] "GET /passport/image_code?code_id=ab7236e9-04fb-4237-8cad-afd2eabb7905 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:44:22] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:44:28] "GET /passport/image_code?code_id=27a35ffb-10f6-42b4-be32-dc46673a75e0 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:44:33] "GET /passport/image_code?code_id=77a344b0-a909-41c1-8568-922a0f8f56e3 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:44:34] "GET /passport/image_code?code_id=e0e7bf83-8df6-4000-8cb3-0a1082b4f93e HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:47:55] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:47:57] "GET /passport/image_code?code_id=4af56f65-b21a-491d-8f16-b0827b82f757 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:50:07] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:50:08] "GET /passport/image_code?code_id=97365a7f-ee5c-4dd1-8778-e4f16ec6ed42 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:50:44] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:50:49] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:50:51] "GET /passport/image_code?code_id=8808e03a-29cc-45fb-98d5-55bc1736eb0d HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:51:05] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 13:51:07] "GET /passport/image_code?code_id=5c8a9602-7694-4f03-943e-e7ae38f2b800 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:31:05] "GET /passport/smscode HTTP/1.1" 405 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG views.py:50 短信验证码的内容：935426
+ERROR app.py:1761 Exception on /passport/smscode [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:31:34] "GET /passport/smscode HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:32:19] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:32:20] "GET /passport/image_code?code_id=535287ec-24b7-4f23-83a4-b30bd7c18962 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:36:40] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:36:41] "GET /passport/image_code?code_id=a3ea4a1b-471c-4038-a9ae-c6e240585505 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:40:39] "GET /passport/image_code?code_id=803c7f55-f4fd-46fe-9788-770899304754 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:40:40] "GET /passport/image_code?code_id=83980137-2a2a-4b8f-8d73-5b0f6d0fc3e9 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:40:40] "GET /passport/image_code?code_id=0eef3146-e87a-479d-878c-0ef95631e876 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:40:40] "GET /passport/image_code?code_id=c91eb581-86e4-46ca-b952-eeb6d02579fa HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:40:40] "GET /passport/image_code?code_id=778330b8-bf15-4738-ae4c-52a07738dcdd HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:40:41] "GET /passport/image_code?code_id=fae949f4-079b-4c48-9ab7-775e50b436e3 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:42:48] "GET /passport/image_code?code_id=fae949f4-079b-4c48-9ab7-775e50b436e3 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:42:55] "GET /passport/image_code?code_id=fae949f4-079b-4c48-9ab7-775e50b436e3 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:44:46] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:44:49] "GET /passport/image_code?code_id=bbe84cb7-d36f-49fa-a098-8e0ff78ef3fb HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:49:34] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:49:35] "GET /passport/image_code?code_id=2692e48c-4586-4a79-958b-f43dbeeab8b9 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:49:43] "GET /passport/image_code?code_id=c00095fd-2890-4d2c-921f-87adfcd3ad3a HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 14:49:43] "GET /passport/image_code?code_id=786961e1-b024-431f-9607-49a4d3bea3ae HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:17:57] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:17:58] "GET /passport/image_code?code_id=d33b1932-55ee-40fe-93e0-09f67fa773a8 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:29:20] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:29:21] "GET /passport/image_code?code_id=06ced662-7926-4477-bc22-7b020066a24b HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:29:32] "GET /passport/image_code?code_id=313bbfc6-aff3-454c-bd61-3215d247ed72 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:37:08] "GET / HTTP/1.1" 200 -
+ERROR app.py:1761 Exception on /passport/sms_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:37:29] "GET /passport/sms_code HTTP/1.1" 500 -
+ERROR app.py:1761 Exception on /passport/sms_code [GET]
+Traceback (most recent call last):
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "G:\python_virtualenv\flask3_venv\lib\site-packages\flask\app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:37:59] "GET /passport/sms_code HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:38:05] "GET /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:38:12] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:38:13] "GET /passport/image_code?code_id=69da1fdb-3cb1-4f37-8f9f-650ac1088c05 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:40:35] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:40:36] "GET /passport/image_code?code_id=25ef31ce-977b-4cc9-b3d4-e0e34935ac1c HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:46:53] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:46:54] "GET /passport/image_code?code_id=c573bb0c-d877-4d47-981b-a6429d3376a9 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:48:33] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:48:34] "GET /passport/image_code?code_id=794ced8b-d9f3-4a68-998b-97755a9351f2 HTTP/1.1" 200 -

@@ -21,8 +21,9 @@ class Config(object):
 
     # LOG_LEVEL = logging.DEBUG
 app = Flask(__name__)
-app.config.from_object(Config)
-
+# app.config.from_object(Config)
+redis_store = StrictRedis(host="192.168.15.131", port=6379)
+redis_store.set("name", "zhangsan")
 
 @app.route("/")
 def hello_world():
@@ -31,4 +32,6 @@ def hello_world():
 
 if __name__ == '__main__':
     print(Config.REDIS_HOST)
-    app.run(debug=True)
+    redis_store = StrictRedis(host="192.168.15.131", port=6379)
+    redis_store.set("name", "zhangsan")
+    # app.run(debug=True)

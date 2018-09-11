@@ -39,6 +39,15 @@ def create_app(config_name):
 
     setup_log(config_name)
     app = Flask(__name__)
+
+    app.config.from_object(config[config_name])
+    Session(app)
+    db.init_app(app)
+    CSRFProtect(app)
+    global redis_store
+    redis_store = StrictRedis(host=config[config_name].REDIS_HOST, port=config[config_name].REDIS_PORT)
+    # redis_store = StrictRedis(host=app.config.get("REDIS_HOST"), port=app.config.get("REDIS_PORT"))
+
     from info.modules.news import news_blueprint
     app.register_blueprint(news_blueprint)
     from info.modules.admin import admin_blueprint
@@ -51,11 +60,4 @@ def create_app(config_name):
     from info.modules.users import user_blueprint
     app.register_blueprint(user_blueprint)
 
-    app.config.from_object(config[config_name])
-    Session(app)
-    db.init_app(app)
-    CSRFProtect(app)
-    global redis_store
-    redis_store = StrictRedis(host=config[config_name].REDIS_HOST, port=config[config_name].REDIS_PORT)
-    # redis_store = StrictRedis(host=app.config.get("REDIS_HOST"), port=app.config.get("REDIS_PORT"))
     return app
