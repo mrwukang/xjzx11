@@ -855,3 +855,192 @@ INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:46:54] "GET /passport/image_c
 INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:48:33] "GET / HTTP/1.1" 200 -
 INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 15:48:34] "GET /passport/image_code?code_id=794ced8b-d9f3-4a68-998b-97755a9351f2 HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:09:03] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:09:04] "GET /favicon.ico HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:09:06] "GET /passport/image_code?code_id=abf8ed4a-cae1-4cd3-abd8-302c6129309b HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:09:09] "GET /passport/image_code?code_id=17730fd7-8229-4183-9bd3-d1a5bda88aef HTTP/1.1" 200 -
+INFO csrf.py:251 The CSRF token is missing.
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:09:13] "POST /passport/sms_code HTTP/1.1" 400 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/css/reset.css HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/css/main.css HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/js/main.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/js/index.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/images/logo.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/images/news_pic.jpg HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/images/pic_code.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/images/person.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/images/clock.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:30] "GET /static/news/images/hit_icon.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:33] "GET /passport/image_code?code_id=31115d76-6c4d-40c6-9f8a-31c05c75b7a5 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:10:36] "POST /passport/sms_code HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:14] "GET /passport/image_code?code_id=b3e0eab8-f49a-4a87-95f3-d64add34270d HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:15] "GET /passport/image_code?code_id=1c3a35e4-0e78-49ca-9b2d-9ee9bee9cafc HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:16] "GET /passport/image_code?code_id=76dd2b01-4850-4684-9e2d-cb43010f0933 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:29] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:30] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:40] "GET /passport/image_code?code_id=415871aa-84d6-4064-9a44-c83df1dba2c1 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:41] "GET /passport/image_code?code_id=a8be11bc-8841-4ec3-8529-6fd76f7123d3 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:41:43] "GET /passport/image_code?code_id=251b2208-bc11-4506-b9e1-d36111ebeccb HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:01] "POST /passport/sms_code HTTP/1.1" 500 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:52] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:54] "GET /passport/image_code?code_id=7dfad2c8-11e1-470c-a5fd-331d5ba4165d HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:57] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:42:57] "GET /passport/image_code?code_id=0254ade3-aa08-4da9-8e02-1eaa940938dd HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:43:21] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:43:21] "GET /passport/image_code?code_id=024d8fab-b0a8-4fb4-af4d-26786403a02c HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in '/home/python/python_project/xjzx11/project_xjzx/info/modules/passport/views.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:44:21] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in '/home/python/python_project/xjzx11/project_xjzx/info/modules/passport/views.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:16] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:20] "GET /passport/image_code?code_id=bf688e19-9de0-45d7-9ce4-6c9705113546 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 16:46:39] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:57] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:57] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:57] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:58] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:17:59] "GET /passport/image_code?code_id=121b4934-edbd-48a7-8b32-3c0370b51574 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:18:17] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:18:39] "POST /passport/register HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in '/home/python/python_project/xjzx11/project_xjzx/info/modules/passport/views.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88  * Detected change in '/home/python/python_project/xjzx11/project_xjzx/info/modules/passport/views.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:38] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:39] "GET /passport/image_code?code_id=38d65a9b-fa81-4200-834a-15c73b312589 HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:20:54] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:21:11] "POST /passport/register HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in '/home/python/python_project/xjzx11/project_xjzx/info/modules/passport/views.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 227-482-433
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:22] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:23] "GET /passport/image_code?code_id=bd69c9ce-2c99-479a-86bf-7c3ca652fd6e HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:22:38] "POST /passport/sms_code HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "POST /passport/register HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/images/person01.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:23:35] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/images/person01.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:14] "GET / HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/css/main.css HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/js/jquery-1.12.4.min.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/js/main.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/js/index.js HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/images/logo.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/images/person01.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/images/news_pic.jpg HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/images/person.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "GET /static/news/images/pic_code.png HTTP/1.1" 304 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:15] "POST /passport/logout HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:16] "POST /passport/logout HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:16] "POST /passport/logout HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [11/Sep/2018 17:25:16] "POST /passport/logout HTTP/1.1" 404 -
