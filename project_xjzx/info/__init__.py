@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
 import os
+
 from logging.handlers import RotatingFileHandler
 from flask import Flask
+from flask_wtf.csrf import generate_csrf
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 from redis import StrictRedis
@@ -43,7 +45,7 @@ def create_app(config_name):
     app.config.from_object(config[config_name])
     Session(app)
     db.init_app(app)
-    # CSRFProtect(app)
+    CSRFProtect(app)
     global redis_store
     redis_store = StrictRedis(host=config[config_name].REDIS_HOST, port=config[config_name].REDIS_PORT)
     # redis_store = StrictRedis(host=app.config.get("REDIS_HOST"), port=app.config.get("REDIS_PORT"))
@@ -59,5 +61,11 @@ def create_app(config_name):
     app.register_blueprint(passport_blueprint)
     from info.modules.users import user_blueprint
     app.register_blueprint(user_blueprint)
+
+    @app.after_request
+    def after_request(response):
+        csrf_token = generate_csrf()
+        response.set_cookie("csrf_token", csrf_token)
+        return response
 
     return app
