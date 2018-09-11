@@ -5,7 +5,7 @@ import logging
 class Config(object):
     """工程配置信息"""
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://wukang:123587415@192.168.15.131:3306/information"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://wukang:123587415@127.0.0.1:3306/information"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = "jpNVSNQTyGi1VvWECj9TvC/+kq3oujee2kTfQUs8yCM6xX9Yjq"
 
