@@ -243,6 +243,7 @@ function sendSMSCode() {
         // 请求地址
         url: "/passport/sms_code",
         // 请求方式
+
         method: "post",
         headers: {
                 "X-CSRFToken": getCookie("csrf_token")

@@ -12,6 +12,7 @@ from info.modules.passport import passport_blueprint
 from info.response_code import RET
 from info.utils.sms import send_template_sms
 
+
 from libs.captcha.captcha import captcha
 
 
@@ -36,8 +37,6 @@ def send_sms_code():
     mobile = param_dict.get("mobile")
     image_code_id = param_dict.get("image_code_id")
     image_code = param_dict.get("image_code")
-
-    # 验证手机号和图片验证码
     if not all([mobile, image_code, image_code_id]):
         return jsonify(errno=RET.PARAMERR, errmsg="参数输入不全")
     if not re.match(r"^1[3-9]\d{9}$", mobile):
@@ -95,9 +94,11 @@ def register():
     if not all([sms_code, password, mobile]):
         return jsonify(errno=RET.PARAMERR, errmsg="参数不全")
     sms_code_redis = redis_store.get("SMS_" + mobile)
+
     if not sms_code_redis:
         return jsonify(errno=RET.NODATA, errmsg="验证码已过期")
     sms_code_redis = sms_code_redis.decode()
+
     if sms_code != sms_code_redis:
         return jsonify(errno=RET.DATAERR, errmsg="验证码输入错误")
     try:

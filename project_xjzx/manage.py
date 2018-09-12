@@ -9,8 +9,11 @@ from info.models import db
 
 app = create_app("development")
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6a5b811e04d63d73d11ef9131f2c8533acfaa27d
 manager = Manager(app)
 # 数据库迁移
 Migrate(app, db)
