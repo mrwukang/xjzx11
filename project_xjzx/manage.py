@@ -3,18 +3,12 @@
 
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+from flask_wtf.csrf import generate_csrf
 from info import create_app
 from info.models import db
-from flask_wtf.csrf import generate_csrf
 
 app = create_app("development")
 
-
-# @app.after_request
-# def after_request(response):
-#     csrf_token = generate_csrf()
-#     response.set_cookie("csrf_token", csrf_token)
-#     return response
 
 
 manager = Manager(app)
