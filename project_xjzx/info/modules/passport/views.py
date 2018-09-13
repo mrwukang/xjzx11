@@ -18,6 +18,8 @@ from libs.captcha.captcha import captcha
 
 @passport_blueprint.route("/image_code")
 def get_image_code():
+    """生成图片验证码"""
+
     image_code_id = request.args.get("code_id")
     name, text, image = captcha.generate_captcha()
     print(text)
@@ -32,7 +34,8 @@ def get_image_code():
 
 @passport_blueprint.route("/sms_code", methods=["POST"])
 def send_sms_code():
-    """发送验证码"""
+    """发送六位验证码并发送到注册者手机"""
+
     param_dict = request.json
     mobile = param_dict.get("mobile")
     image_code_id = param_dict.get("image_code_id")
@@ -87,6 +90,8 @@ def send_sms_code():
 
 @passport_blueprint.route("/register", methods=["POST"])
 def register():
+    """注册功能"""
+
     param_dict = request.json
     sms_code = param_dict.get("smscode")
     password = param_dict.get("password")
@@ -130,7 +135,6 @@ def login():
         3. 校验密码
         4. 保存用户登录状态
         5. 返回结果
-        :return:
         """
     param_dict = request.json
     mobile = param_dict.get("mobile")
@@ -156,6 +160,8 @@ def login():
 
 @passport_blueprint.route("/logout", methods=["POST"])
 def logout():
+    """退出功能"""
+
     session.pop("user_id", None)
     session.pop("nick_name", None)
     session.pop("mobile", None)

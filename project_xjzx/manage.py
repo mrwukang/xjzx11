@@ -3,7 +3,6 @@
 
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
-from flask_wtf.csrf import generate_csrf
 from info import create_app
 from info.models import db
 

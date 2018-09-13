@@ -11,6 +11,7 @@ from redis import StrictRedis
 from flask_session import Session
 
 from info.config import config
+from info.utils.common import do_index_class
 
 
 db = SQLAlchemy()
@@ -49,6 +50,9 @@ def create_app(config_name):
     global redis_store
     redis_store = StrictRedis(host=config[config_name].REDIS_HOST, port=config[config_name].REDIS_PORT)
     # redis_store = StrictRedis(host=app.config.get("REDIS_HOST"), port=app.config.get("REDIS_PORT"))
+
+    # 添加模板使用的选择器
+    app.add_template_filter(do_index_class, "index_class")
 
     from info.modules.news import news_blueprint
     app.register_blueprint(news_blueprint)

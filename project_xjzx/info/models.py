@@ -34,10 +34,10 @@ class User(BaseModel, db.Model):
     nick_name = db.Column(db.String(32), unique=True, nullable=False)  # 用户昵称
     password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
     mobile = db.Column(db.String(11), unique=True, nullable=False)  # 手机号
-    avatar_url = db.Column(db.String(256))  # 用户头像路径
+    avatar_url = db.Column(db.String(256), default="/user_pic.png")  # 用户头像路径
     last_login = db.Column(db.DateTime, default=datetime.now)  # 最后一次登录时间
     is_admin = db.Column(db.Boolean, default=False)
-    signature = db.Column(db.String(512))  # 用户签名
+    signature = db.Column(db.String(512), default="这家伙很懒")  # 用户签名
     gender = db.Column(  # 订单的状态
         db.Enum(
             "MAN",  # 男
@@ -54,7 +54,7 @@ class User(BaseModel, db.Model):
                               secondaryjoin=id == tb_user_author.c.author_id,
                               backref=db.backref("users", lazy="dynamic"))
 
-    # backref:维护的是多对一
+    # 当前用户发布的新闻，backref:新闻的作者，维护的是多对一
     news_list = db.relationship('News', backref='user', lazy='dynamic')
 
     def to_dict(self):
@@ -66,11 +66,12 @@ class User(BaseModel, db.Model):
             "id": self.id,
             "nick_name": self.nick_name,
             # http://oyucyko3w.bkt.clouddn.com/Fg-7WDaDihkttxOclQqZkMC3KUqf
-            "avatar_url": constants.QINIU_DOMIN_PREFIX + self.avatar_url if self.avatar_url else "",
+            # "avatar_url": constants.QINIU_DOMIN_PREFIX + self.avatar_url if self.avatar_url else "",
+            "avatar_url": "/static/news/images"+self.avatar_url,
             "mobile": self.mobile,
             "gender": self.gender if self.gender else "MAN",
             "signature": self.signature if self.signature else "",
-            "followers_count": self.followers.count(),
+            "followers_count": self.users.count(),
             "news_count": self.news_list.count()
         }
         return resp_dict
@@ -84,6 +85,9 @@ class User(BaseModel, db.Model):
             "last_login": self.last_login.strftime("%Y-%m-%d %H:%M:%S"),
         }
         return resp_dict
+
+    def to_index_dict(self):
+        return {"nick_name": self.nick_name, "avatar_url": "/static/news/images"+self.avatar_url}
 
     @property
     def password(self):
@@ -152,7 +156,7 @@ class News(BaseModel, db.Model):
             "source": self.source,
             "digest": self.digest,
             "create_time": self.create_time.strftime("%Y-%m-%d %H:%M:%S"),
-            "index_image_url": self.index_image_url,
+            "index_image_url": "/static/news/images/"+self.index_image_url,
             "clicks": self.clicks,
         }
         return resp_dict
@@ -170,7 +174,15 @@ class News(BaseModel, db.Model):
             "clicks": self.clicks,
             "category": self.category.to_dict(),
             "index_image_url": self.index_image_url,
-            "author": self.user.to_dict() if self.user else None
+            "author": self.user.to_dict() if self.user else None  # 新闻作者
+        }
+        return resp_dict
+
+    def to_click_dict(self):
+        """"""
+        resp_dict = {
+            "id": self.id,
+            "title": self.title
         }
         return resp_dict
 
