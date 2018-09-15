@@ -3,7 +3,7 @@ import logging
 import os
 
 from logging.handlers import RotatingFileHandler
-from flask import Flask
+from flask import Flask, g, render_template
 from flask_wtf.csrf import generate_csrf
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
@@ -11,7 +11,7 @@ from redis import StrictRedis
 from flask_session import Session
 
 from info.config import config
-from info.utils.common import do_index_class
+from info.utils.common import do_index_class, user_login
 
 
 db = SQLAlchemy()
@@ -54,15 +54,19 @@ def create_app(config_name):
     # 添加模板使用的选择器
     app.add_template_filter(do_index_class, "index_class")
 
+    # 新闻蓝图
     from info.modules.news import news_blueprint
     app.register_blueprint(news_blueprint)
+    # 管理员蓝图
     from info.modules.admin import admin_blueprint
     app.register_blueprint(admin_blueprint)
+    # 主页蓝图
     from info.modules.index import index_blueprint
     app.register_blueprint(index_blueprint)
-
+    #登录蓝图
     from info.modules.passport import passport_blueprint
     app.register_blueprint(passport_blueprint)
+    # 用户蓝图
     from info.modules.users import user_blueprint
     app.register_blueprint(user_blueprint)
 
@@ -71,5 +75,16 @@ def create_app(config_name):
         csrf_token = generate_csrf()
         response.set_cookie("csrf_token", csrf_token)
         return response
+
+    @app.errorhandler(404)
+    @user_login
+    def not_found(e):
+        user_dict = None
+        if g.user:
+            user_dict = g.user.to_dict()
+        data = {
+            "user_info": user_dict
+        }
+        return render_template("news/404.html", data=data)
 
     return app

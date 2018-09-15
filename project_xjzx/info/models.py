@@ -69,10 +69,10 @@ class User(BaseModel, db.Model):
             # "avatar_url": constants.QINIU_DOMIN_PREFIX + self.avatar_url if self.avatar_url else "",
             "avatar_url": "/static/news/images"+self.avatar_url,
             "mobile": self.mobile,
-            "gender": self.gender if self.gender else "MAN",
-            "signature": self.signature if self.signature else "",
-            "followers_count": self.users.count(),
-            "news_count": self.news_list.count()
+            "gender": self.gender if self.gender else "MAN",  # 性别
+            "signature": self.signature if self.signature else "",  # 用户签名
+            "followers_count": self.users.count(),  # 粉丝数量
+            "news_count": self.news_list.count()  # 所写文章篇数
         }
         return resp_dict
 
@@ -130,7 +130,7 @@ class News(BaseModel, db.Model):
     content = db.Column(db.Text, nullable=False)  # 新闻内容
     clicks = db.Column(db.Integer, default=0)  # 浏览量
     index_image_url = db.Column(db.String(256))  # 新闻列表图片路径
-    category_id = db.Column(db.Integer, db.ForeignKey("info_category.id"))
+    category_id = db.Column(db.Integer, db.ForeignKey("info_category.id"))  # 新闻分类
     user_id = db.Column(db.Integer, db.ForeignKey("info_user.id"))  # 当前新闻的作者id
     status = db.Column(db.Integer, default=0)  # 当前新闻状态 如果为0代表审核通过，1代表审核中，-1代表审核不通过
     reason = db.Column(db.String(256))  # 未通过原因，status = -1 的时候使用
@@ -170,11 +170,11 @@ class News(BaseModel, db.Model):
             "digest": self.digest,
             "create_time": self.create_time.strftime("%Y-%m-%d %H:%M:%S"),
             "content": self.content,
-            "comments_count": self.comments.count(),
-            "clicks": self.clicks,
-            "category": self.category.to_dict(),
-            "index_image_url": self.index_image_url,
-            "author": self.user.to_dict() if self.user else None  # 新闻作者
+            "comments_count": self.comments.count(),  # 新闻评论量
+            "clicks": self.clicks,  # 新闻点击量
+            "category": self.category.to_dict(),  # 新闻分类的详细字典
+            "index_image_url": self.index_image_url,  # 新闻列表图片路径
+            "author": self.user.to_dict() if self.user else None  # 新闻的作者
         }
         return resp_dict
 
@@ -212,7 +212,7 @@ class Comment(BaseModel, db.Model):
     news_id = db.Column(db.Integer, db.ForeignKey("info_news.id"), nullable=False)  # 新闻id
     content = db.Column(db.Text, nullable=False)  # 评论内容
     parent_id = db.Column(db.Integer, db.ForeignKey("info_comment.id"))  # 父评论id
-    parent = db.relationship("Comment", remote_side=[id])  # 自关联
+    parent = db.relationship("Comment", remote_side=[id], backref="children")  # 自关联
     like_count = db.Column(db.Integer, default=0)  # 点赞条数
 
     def to_dict(self):
@@ -223,7 +223,17 @@ class Comment(BaseModel, db.Model):
             "parent": self.parent.to_dict() if self.parent else None,
             "user": User.query.get(self.user_id).to_dict(),
             "news_id": self.news_id,
-            "like_count": self.like_count
+            "like_count": self.like_count,
+            "children": [child.to_back_dict() for child in self.children],
+            "is_like": False,
+        }
+        return resp_dict
+
+    def to_back_dict(self):
+        resp_dict = {
+            "id": self.id,
+            "content": self.content,
+            "user": User.query.get(self.user_id).to_dict(),
         }
         return resp_dict
 

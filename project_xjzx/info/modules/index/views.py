@@ -12,12 +12,8 @@ from info.utils.common import user_login
 @index_blueprint.route("/")
 @user_login
 def index():
-    # user_id = session.get("user_id")
-    # try:
-    #     user = User.query.get(user_id) if user_id else None
-    # except Exception as e:
-    #     current_app.logger.error(e)
-    #     return jsonify(errno=RET.DBERR, errmsg="数据查询错误")
+
+    """返回首页"""
 
     try:
         # 在新闻表中查找点击量在前六位的新闻
@@ -45,6 +41,7 @@ def index():
 
 @index_blueprint.route('/newslist')
 def newslist():
+    """新闻列表展示的功能"""
     args_dict = request.args
     try:
         cur_page = int(args_dict.get("page"))  # 当前页数

@@ -29,8 +29,8 @@
             {# 如果登录，显示用户信息 #}
             {% if data.user_info %}
             <div class="user_login fr" style="display: block;">
-                <img src="{{ data.user_info.avatar_url }}" class="lgin_pic">
-                <a href="#">{{ data.user_info.nick_name }}</a>
+                <img src="{% if data.user_info.avatar_url %} {{ data.user_info.avatar_url }}{% else %}../../static/news/images/person01.png{% endif %}" class="lgin_pic">
+                <a href="{{ url_for("user.get_user_info") }}">{{ data.user_info.nick_name }}</a>
                 <a href="javascript:logout();">退出</a>
             </div>
                 {# 如果没登录，则显示登录注册按钮 #}
@@ -50,45 +50,46 @@
                 
         {% endblock %}
         
-
+        {% block rankBlock %}
         <div class="rank_con fr">
                 {% block authorBlock %}
 
                 {% endblock %}
-            {% block rankBlock %}
+
+
                 <div class="rank_title">
                     <h3>点击排行</h3>
                 </div>
-
-
                 <ul class="rank_list">
                     {% for news in data.click_news_list %}
-                        <li><span class="{{ loop.index | index_class }}">{{ loop.index }}</span><a href="#">{{ news.title }}</a></li>
+                        <li><span class="{{ loop.index | index_class }}">{{ loop.index }}</span><a href="news/{{ news.id }}">{{ news.title }}</a></li>
                     {% endfor %}
                 </ul>
+
             </div>
     {% endblock %}
-        {# 点击排行 #}
 
     </div>
 
 
-
+{% block bottomBlock %}
     <div class="footer">
-        <div class="footer_links">
-            <a href="">关于我们</a>
-            <span>|</span>
-            <a href="">联系我们</a>
-            <span>|</span>
-            <a href="">招聘人才</a>
-            <span>|</span>
-            <a href="">友情链接</a>
-        </div>
-        <p class="copyright">
-            CopyRight © 2018 新经资讯信息技术有限公司 All Rights Reserved<br />
-电话：010-****888    京ICP备*******8号
-        </p>
+            <div class="footer_links">
+                <a href="">关于我们</a>
+                <span>|</span>
+                <a href="">联系我们</a>
+                <span>|</span>
+                <a href="">招聘人才</a>
+                <span>|</span>
+                <a href="">友情链接</a>
+            </div>
+            <p class="copyright">
+                CopyRight © 2018 新经资讯信息技术有限公司 All Rights Reserved<br />
+    电话：010-****888    京ICP备*******8号
+            </p>
     </div>
+{% endblock %}
+
 
     <!-- 登录表单 -->
     <form class="login_form_con">
