@@ -213,6 +213,45 @@ def comment_like():
     return jsonify(errno=RET.OK, errmsg="成功")
 
 
+@news_blueprint.route('/followed_user', methods=["POST"])
+@user_login
+def followed_user():
+    """ 关注和取消关注功能 """
+    user = g.user
+    data_dict = request.json
+    user_id = int(data_dict.get("user_id"))
+    action = data_dict.get("action")
+
+    # 对数据进行验证
+    if not all([user_id, action]):
+        return jsonify(errno=RET.PARAMERR, errmsg="参数不全")
+    if action not in ["follow", "unfollow"]:
+        return jsonify(errno=RET.PARAMERR, errmsg="参数错误")
+    if not user:
+        return jsonify(errno=RET.SESSIONERR, errmsg="用户未登录")
+    author = User.query.get(user_id)
+    if author in user.authors:
+        return jsonify(errno=RET.DATAEXIST, errmsg="作者已经被关注")
+
+    # 处理数据
+    if action == "follow":
+        user.authors.append(author)
+    elif action == "unfollow":
+        user.authors.remove(author)
+
+    # 提交数据
+    try:
+        db.session.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg="数据存储失败")
+
+    return jsonify(errno=RET.OK, errmsg="操作成功")
+
+
+
+
 
 
 

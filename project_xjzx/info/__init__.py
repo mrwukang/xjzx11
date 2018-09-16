@@ -67,7 +67,7 @@ def create_app(config_name):
     from info.modules.passport import passport_blueprint
     app.register_blueprint(passport_blueprint)
     # 用户蓝图
-    from info.modules.users import user_blueprint
+    from info.modules.profile import user_blueprint
     app.register_blueprint(user_blueprint)
 
     @app.after_request

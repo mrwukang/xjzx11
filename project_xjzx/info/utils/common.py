@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import functools
-from flask import session, g, current_app
+from flask import session, g, current_app, request, redirect
 
 
 def do_index_class(index):
@@ -15,15 +15,20 @@ def do_index_class(index):
         return ""
 
 
-def user_login(fn):
-    @functools.wraps(fn)
+def user_login(view):
+    @functools.wraps(view)
     def wrapper(*args, **kwargs):
         user_id = session.get("user_id")
         from info.models import User
         try:
-            g.user = User.query.get(user_id) if user_id else None
+            if user_id:
+                g.user = User.query.get(user_id)
+            else:
+                g.user = None
+                if request.path.startswith("/profile"):
+                    return redirect("/")
         except Exception as e:
             current_app.logger.error(e)
 
-        return fn(*args, **kwargs)
+        return view(*args, **kwargs)
     return wrapper

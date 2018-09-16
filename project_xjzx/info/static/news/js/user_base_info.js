@@ -4,13 +4,13 @@ function getCookie(name) {
 }
 
 $(function () {
-
     $(".base_info").submit(function (e) {
         e.preventDefault()
 
-        var signature = $("#signature").val()
-        var nick_name = $("#nick_name").val()
-        var gender = $(".gender").val()
+        var signature = $("#signature").val();
+        var nick_name = $("#nick_name").val();
+        // var gender = $(".gender").val();
+        var gender = $('input:radio[name="gender"]:checked').val();
 
         if (!nick_name) {
             alert('请输入昵称')
@@ -20,15 +20,14 @@ $(function () {
             alert('请选择性别')
         }
 
-        // TODO 修改用户信息接口
-         var params = {
+        var params = {
             "signature": signature,
             "nick_name": nick_name,
             "gender": gender
         }
 
         $.ajax({
-            url: "/user/base_info",
+            url: "/profile/user_base_info",
             type: "post",
             contentType: "application/json",
             headers: {
@@ -37,17 +36,15 @@ $(function () {
             data: JSON.stringify(params),
             success: function (resp) {
                 if (resp.errno == "0") {
+                    alert('修改成功');
                     // 更新父窗口内容
                     $('.user_center_name', parent.document).html(params['nick_name'])
-                    $('#nick_name', parent.document).html(params['nick_name'])
+                    $('.user_login>a', parent.document).first().html(params['nick_name'])
                     $('.input_sub').blur()
-                }else {
+                } else {
                     alert(resp.errmsg)
                 }
             }
         })
-
-
-
     })
 })

@@ -30,7 +30,7 @@
             {% if data.user_info %}
             <div class="user_login fr" style="display: block;">
                 <img src="{% if data.user_info.avatar_url %} {{ data.user_info.avatar_url }}{% else %}../../static/news/images/person01.png{% endif %}" class="lgin_pic">
-                <a href="{{ url_for("user.get_user_info") }}">{{ data.user_info.nick_name }}</a>
+                <a href="{{ url_for("profile.get_user_info") }}">{{ data.user_info.nick_name }}</a>
                 <a href="javascript:logout();">退出</a>
             </div>
                 {# 如果没登录，则显示登录注册按钮 #}

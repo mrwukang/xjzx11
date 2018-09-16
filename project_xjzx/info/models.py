@@ -34,11 +34,11 @@ class User(BaseModel, db.Model):
     nick_name = db.Column(db.String(32), unique=True, nullable=False)  # 用户昵称
     password_hash = db.Column(db.String(128), nullable=False)  # 加密的密码
     mobile = db.Column(db.String(11), unique=True, nullable=False)  # 手机号
-    avatar_url = db.Column(db.String(256), default="/user_pic.png")  # 用户头像路径
+    avatar_url = db.Column(db.String(256), default="FvcTlMWbps0waKZuvz9lUm6R36AA")  # 用户头像路径
     last_login = db.Column(db.DateTime, default=datetime.now)  # 最后一次登录时间
     is_admin = db.Column(db.Boolean, default=False)
     signature = db.Column(db.String(512), default="这家伙很懒")  # 用户签名
-    gender = db.Column(  # 订单的状态
+    gender = db.Column(
         db.Enum(
             "MAN",  # 男
             "WOMAN"  # 女
@@ -67,7 +67,8 @@ class User(BaseModel, db.Model):
             "nick_name": self.nick_name,
             # http://oyucyko3w.bkt.clouddn.com/Fg-7WDaDihkttxOclQqZkMC3KUqf
             # "avatar_url": constants.QINIU_DOMIN_PREFIX + self.avatar_url if self.avatar_url else "",
-            "avatar_url": "/static/news/images"+self.avatar_url,
+            # "avatar_url": "/static/news/images"+self.avatar_url,
+            "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url,
             "mobile": self.mobile,
             "gender": self.gender if self.gender else "MAN",  # 性别
             "signature": self.signature if self.signature else "",  # 用户签名
@@ -87,7 +88,7 @@ class User(BaseModel, db.Model):
         return resp_dict
 
     def to_index_dict(self):
-        return {"nick_name": self.nick_name, "avatar_url": "/static/news/images"+self.avatar_url}
+        return {"nick_name": self.nick_name, "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url}
 
     @property
     def password(self):
@@ -174,7 +175,7 @@ class News(BaseModel, db.Model):
             "clicks": self.clicks,  # 新闻点击量
             "category": self.category.to_dict(),  # 新闻分类的详细字典
             "index_image_url": self.index_image_url,  # 新闻列表图片路径
-            "author": self.user.to_dict() if self.user else None  # 新闻的作者
+            "author_dict": self.user.to_dict() if self.user else None  # 新闻的作者
         }
         return resp_dict
 
@@ -193,7 +194,7 @@ class Category(BaseModel, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)  # 分类编号
     name = db.Column(db.String(64), nullable=False)  # 分类名
-    news_list = db.relationship('News', backref='category', lazy='dynamic')
+    news_list = db.relationship('News', backref='category', lazy='dynamic')  # 和新闻的关系，一对多
 
     def to_dict(self):
         resp_dict = {

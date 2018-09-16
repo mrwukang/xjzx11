@@ -52,13 +52,20 @@ def newslist():
         return jsonify(errno=RET.PARAMERR, errmsg="参数错误")
     if not all([cur_page, category_id, per_page]):
         return jsonify(errno=RET.PARAMERR, errmsg="参数不全")
-    if category_id == "0":
-        paginate = News.query.order_by(News.id.desc()).paginate(cur_page, per_page, False)
-    else:
-        paginate = News.query.filter(News.category_id == category_id).order_by(News.id.desc()).paginate(cur_page, per_page, False)
-    news_list = paginate.items
-    total_page = paginate.pages
-    news_dict_list = [news.to_basic_dict() for news in news_list]
+
+    # 如果是“最新”分组，则查询所有新闻
+    # 即如果分类id不为0， 则添加对于分类id的过滤
+    pagination = News.query
+    if category_id != "0":
+        pagination = pagination.filter(News.category_id == category_id)
+    try:
+        pagination = pagination.order_by(News.id.desc()).paginate(cur_page, per_page, False)
+        news_list = pagination.items
+        total_page = pagination.pages
+        news_dict_list = [news.to_basic_dict() for news in news_list]
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="数据查询失败")
     data = {
         "errno": RET.OK,
         "errmsg": "数据传递成功",
