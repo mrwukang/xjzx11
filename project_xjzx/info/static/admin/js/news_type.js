@@ -39,6 +39,7 @@ $(function(){
     });
 
     $confirm.click(function(){
+        var params = {}
         if(sHandler=='edit')
         {
             var sVal = $input.val();
@@ -47,6 +48,10 @@ $(function(){
                 $error.html('输入框不能为空').show();
                 return;
             }
+            params = {
+                "id": sId,
+                "name": sVal,
+            };
         }
         else
         {
@@ -56,7 +61,27 @@ $(function(){
                 $error.html('输入框不能为空').show();
                 return;
             }
+            params = {
+                "name": sVal,
+            }
         }
 
+        $.ajax({
+            url:"/admin/add_category",
+            method: "post",
+            headers: {
+                "X-CSRFToken": getCookie("csrf_token")
+            },
+            data: JSON.stringify(params),
+            contentType: "application/json",
+            success: function (resp) {
+                if (resp.errno == "0") {
+                    // 刷新当前界面
+                    location.reload();
+                }else {
+                    $error.html(resp.errmsg).show();
+                }
+            }
+        })
     })
 })

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from libs.ytx_sdk.CCPRestSDK import REST
-import configparser
 
 accountSid = '8a216da865ae11f80165b9202a260529'
 # 说明：主账号，登陆云通讯网站后，可在控制台首页中看到开发者主账号ACCOUNT SID。

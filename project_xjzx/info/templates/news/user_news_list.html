@@ -14,7 +14,7 @@
         <h3>新闻列表</h3>
         <ul class="article_list">
             {% for news in data.news_list %}
-                <li><a href="/news/{{ news.id }}">{{ news.title }}</a><em class="{% if news.status==0 %}pass{% elif news.status==1 %}review {% else %} nopass{% endif %}">{% if news.status==0 %}已通过{% elif news.status==1 %}审核中{% else %} 未通过{% endif %}</em><span>{{ news.create_time }}</span>{% if news.status == 2 %}<b>未通过原因：因为写的太boring,因为写的太boring,因为写的太boring,因为写的太boring,</b>{% else %}{% endif %}</li>
+                <li><a href="/news/{{ news.id }}" target="_blank">{{ news.title }}</a><em class="{% if news.status==0 %}pass{% elif news.status==1 %}review {% else %} nopass{% endif %}">{% if news.status==0 %}已通过{% elif news.status==1 %}审核中{% else %} 未通过{% endif %}</em><span>{{ news.create_time }}</span>{% if news.status == -1 %}<b>未通过原因：{{ news.reason }}</b>{% else %}{% endif %}</li>
             {% endfor %}
 
 {#            <li><a href="user_news_release.html">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="pass">已通过</em><span>2018-1-17</span></li>#}

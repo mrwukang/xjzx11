@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-import time
+from datetime import datetime
 import random
 import re
 
@@ -130,6 +130,7 @@ def register():
 @passport_blueprint.route("/login", methods=["POST"])
 def login():
     """
+        登录功能
         1. 获取参数和判断是否有值
         2. 从数据库查询出指定的用户
         3. 校验密码
@@ -154,13 +155,18 @@ def login():
     session["nick_name"] = user.nick_name
     session["user_id"] = user.id
     session["mobile"] = user.mobile
-    user.last_login = time.ctime()
+    user.last_login = datetime.now()
+    try:
+        db.session.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="数据库连接失败")
     return jsonify(errno=RET.OK, errmsg="登陆成功")
 
 
 @passport_blueprint.route("/logout", methods=["POST"])
 def logout():
-    """退出功能"""
+    """退出普通用户登录功能"""
 
     session.pop("user_id", None)
     session.pop("nick_name", None)

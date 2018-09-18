@@ -68,7 +68,7 @@ class User(BaseModel, db.Model):
             # http://oyucyko3w.bkt.clouddn.com/Fg-7WDaDihkttxOclQqZkMC3KUqf
             # "avatar_url": constants.QINIU_DOMIN_PREFIX + self.avatar_url if self.avatar_url else "",
             # "avatar_url": "/static/news/images"+self.avatar_url,
-            "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url,
+            "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url if self.avatar_url else "1.jpg",
             "mobile": self.mobile,
             "gender": self.gender if self.gender else "MAN",  # 性别
             "signature": self.signature if self.signature else "",  # 用户签名
@@ -78,17 +78,22 @@ class User(BaseModel, db.Model):
         return resp_dict
 
     def to_admin_dict(self):
+        """在管理员界面使用"""
         resp_dict = {
             "id": self.id,
             "nick_name": self.nick_name,
             "mobile": self.mobile,
-            "register": self.create_time.strftime("%Y-%m-%d %H:%M:%S"),
-            "last_login": self.last_login.strftime("%Y-%m-%d %H:%M:%S"),
+            "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url if self.avatar_url else "1.jpg",
+            "register_time": self.create_time.strftime("%Y-%m-%d %H:%M:%S"),
+            "last_login_time": self.last_login.strftime("%Y-%m-%d %H:%M:%S"),
         }
         return resp_dict
 
     def to_index_dict(self):
-        return {"nick_name": self.nick_name, "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url}
+        return {
+            "nick_name": self.nick_name,
+            "avatar_url": constants.QINIU_DOMIN_PREFIX+self.avatar_url if self.avatar_url else "1.jpg",
+        }
 
     @property
     def password(self):
@@ -130,7 +135,7 @@ class News(BaseModel, db.Model):
     digest = db.Column(db.String(512), nullable=False)  # 新闻摘要
     content = db.Column(db.Text, nullable=False)  # 新闻内容
     clicks = db.Column(db.Integer, default=0)  # 浏览量
-    index_image_url = db.Column(db.String(256))  # 新闻列表图片路径
+    index_image_url = db.Column(db.String(256), default="1.jpg")  # 新闻列表图片路径
     category_id = db.Column(db.Integer, db.ForeignKey("info_category.id"))  # 新闻分类
     user_id = db.Column(db.Integer, db.ForeignKey("info_user.id"))  # 当前新闻的作者id
     status = db.Column(db.Integer, default=0)  # 当前新闻状态 如果为0代表审核通过，1代表审核中，-1代表审核不通过
@@ -145,7 +150,21 @@ class News(BaseModel, db.Model):
             "title": self.title,
             "create_time": self.create_time.strftime("%Y-%m-%d %H:%M:%S"),
             "status": self.status,
-            "reason": self.reason if self.reason else ""
+            "reason": self.reason if self.reason else "",
+        }
+        return resp_dict
+
+    def to_edit_dict(self):
+        """新闻内容审核和修改时使用的"""
+        resp_dict = {
+            "id": self.id,
+            "title": self.title,
+            "category_name": self.category.to_dict().get("name"),
+            "status": self.status,
+            "reason": self.reason if self.reason else "",
+            "index_image_url": constants.QINIU_DOMIN_PREFIX + self.index_image_url if self.index_image_url else "1.jpg",
+            "digest": self.digest,
+            "content": self.content,
         }
         return resp_dict
 
@@ -157,7 +176,7 @@ class News(BaseModel, db.Model):
             "source": self.source,
             "digest": self.digest,
             "create_time": self.create_time.strftime("%Y-%m-%d %H:%M:%S"),
-            "index_image_url": "/static/news/images/"+self.index_image_url,
+            "index_image_url": constants.QINIU_DOMIN_PREFIX + self.index_image_url,
             "clicks": self.clicks,
         }
         return resp_dict
@@ -174,13 +193,13 @@ class News(BaseModel, db.Model):
             "comments_count": self.comments.count(),  # 新闻评论量
             "clicks": self.clicks,  # 新闻点击量
             "category": self.category.to_dict(),  # 新闻分类的详细字典
-            "index_image_url": self.index_image_url,  # 新闻列表图片路径
+            "index_image_url": constants.QINIU_DOMIN_PREFIX + self.index_image_url,  # 新闻列表图片路径
             "author_dict": self.user.to_dict() if self.user else None  # 新闻的作者
         }
         return resp_dict
 
     def to_click_dict(self):
-        """"""
+        """新闻排行使用"""
         resp_dict = {
             "id": self.id,
             "title": self.title

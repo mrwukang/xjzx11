@@ -18,7 +18,7 @@ $(function () {
                     }
                 }
             },
-            url: "/user/news_release",
+            url: "/profile/user_news_release",
             type: "POST",
             headers: {
                 "X-CSRFToken": getCookie('csrf_token')

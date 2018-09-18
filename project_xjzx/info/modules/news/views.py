@@ -230,11 +230,11 @@ def followed_user():
     if not user:
         return jsonify(errno=RET.SESSIONERR, errmsg="用户未登录")
     author = User.query.get(user_id)
-    if author in user.authors:
-        return jsonify(errno=RET.DATAEXIST, errmsg="作者已经被关注")
 
     # 处理数据
     if action == "follow":
+        if author in user.authors:
+            return jsonify(errno=RET.DATAEXIST, errmsg="作者已经被关注")
         user.authors.append(author)
     elif action == "unfollow":
         user.authors.remove(author)

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding:utf-8 -*-
+from  datetime import datetime
 from flask import session, make_response, request, jsonify, g, render_template, current_app, redirect
 
 from info.models import News, User, Category
@@ -25,7 +26,7 @@ def get_user_info():
 @user_login
 def user_base_info():
     """
-        用户基本信息
+        更新用户基本信息
         1. 获取用户登录信息
         2. 获取到传入参数
         3. 更新并保存数据
@@ -48,6 +49,7 @@ def user_base_info():
         return jsonify(errno=RET.PARAMERR, errmsg="参数有误")
 
     # 3. 更新并保存数据
+    user.update_time = datetime.now()
     user.nick_name = nick_name
     user.gender = gender
     user.signature = signature
@@ -60,6 +62,9 @@ def user_base_info():
 
     # 将 session 中保存的数据进行实时更新
     session["nick_name"] = nick_name
+
+
+
 
     # 4. 返回响应
     return jsonify(errno=RET.OK, errmsg="更新成功")
@@ -81,7 +86,6 @@ def pic_info():
         return render_template('news/user_pic_info.html', data={"user_info": user.to_dict()})
     try:
         files = request.files.get("avatar").read()
-        print(files)
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.PARAMERR, errmsg="读取文件出错")
@@ -198,9 +202,9 @@ def collection():
     return render_template('news/user_collection.html', data=data)
 
 
-@user_blueprint.route('/news_release', methods=["GET", "POST"])
+@user_blueprint.route('/user_news_release', methods=["GET", "POST"])
 @user_login
-def news_release():
+def user_news_release():
     """发布新闻"""
     user = g.user
     if request.method == "GET":
@@ -219,26 +223,28 @@ def news_release():
     category_id = request.form.get("category_id")
     digest = request.form.get("digest")
     source = "个人发布"
-    index_image = request.form.get("index_image")
+    index_image = request.files.get("index_image")
     content = request.form.get("content")
 
     # 判断是否有值
-    if not all([title, category_id, digest, index_image, content,source]):
+    if not all([title, category_id, digest, content, source]):
         return jsonify(errno=RET.PARAMERR, errmsg="参数错误")
 
     # 读取图片信息
-    try:
-        image_files = index_image.read()
-    except Exception as e:
-        current_app.logger.error(e)
-        return jsonify(errno=RET.DATAERR, errmsg="图片读取错误")
+    path_url = ""
+    if index_image:
+        try:
+            image_files = index_image.read()
+        except Exception as e:
+            current_app.logger.error(e)
+            return jsonify(errno=RET.DATAERR, errmsg="图片读取错误")
 
-    # 将图片上传到七牛云
-    try:
-        path_url = storage(image_files)
-    except Exception as e:
-        current_app.logger.error(e)
-        return jsonify(errno=RET.THIRDERR, errmsg="上传图片错误")
+        # 将图片上传到七牛云
+        try:
+            path_url = storage(image_files)
+        except Exception as e:
+            current_app.logger.error(e)
+            return jsonify(errno=RET.THIRDERR, errmsg="上传图片错误")
 
     # 将新闻信息存储至数据库
     news = News()
@@ -246,7 +252,8 @@ def news_release():
     news.source = source
     news.digest = digest
     news.content = content
-    news.index_image_url = constants.QINIU_DOMIN_PREFIX + path_url
+    if path_url:
+        news.index_image_url = constants.QINIU_DOMIN_PREFIX + path_url
     news.category_id = category_id
     news.user_id = user.id
     news.status = 1
@@ -261,9 +268,9 @@ def news_release():
     return jsonify(errno=RET.OK, errmsg="发布成功，等待审核")
 
 
-@user_blueprint.route('/news_list')
+@user_blueprint.route('/user_news_list')
 @user_login
-def news_list():
+def user_news_list():
     """显示当前用户已经发布的新闻"""
     try:
         page = int(request.args.get("page", 1))
